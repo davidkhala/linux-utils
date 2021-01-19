@@ -7,3 +7,4 @@ viewDiskVolumes() {
 viewFileSystem() {
     df -h
 }
+$@
