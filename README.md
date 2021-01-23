@@ -11,5 +11,5 @@ https://www.cyberciti.biz/faq/linux-unix-formatting-dates-for-display/
   ```
   rm -rf /path/to/directory/*
   ```
-- `$@ is all of the parameters passed to the script.`
-    - For instance, if you call `./someScript.sh foo bar` then $@ will be equal to `foo bar`.
+- `$@` is all of the parameters passed to the script.
+    - For instance, if you call `./someScript.sh foo bar` then `$@` will be equal to `foo bar`.
