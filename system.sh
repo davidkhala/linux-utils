@@ -7,4 +7,7 @@ viewDiskVolumes() {
 viewFileSystem() {
     df -h
 }
+viewRelease(){
+    cat /etc/*-release | uniq -u
+}
 $@
