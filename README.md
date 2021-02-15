@@ -1,5 +1,5 @@
 # linux-utils
-Linux Distro agnostic command 
+Linux Distro agnostic utils
 
 
 ## Notes
