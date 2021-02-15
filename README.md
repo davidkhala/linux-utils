@@ -13,6 +13,6 @@ https://www.cyberciti.biz/faq/linux-unix-formatting-dates-for-display/
   ```
 - `$@` is all of the parameters passed to the script.
     - For instance, if you call `./someScript.sh foo bar` then `$@` will be equal to `foo bar`.
-- tail
+- `tail`
   - follow and attach to current terminal: `tail -f`
   - get last line: `tail -1`
