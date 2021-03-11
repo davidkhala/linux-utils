@@ -15,4 +15,11 @@ switchBranch() {
     git branch --set-upstream-to=origin/$branchName $branchName
     git pull
 }
+rebaseStrategy(){
+    git config pull.rebase true
+}
+mergeStrategy(){
+    git config pull.rebase false
+}
+
 $@
