@@ -4,6 +4,6 @@ reset() {
     sudo passwd $USER
 }
 resetWith(){
-    echo -e $1 | sudo passwd $USER
+    usermod -p $1 $USER
 }
 $@
