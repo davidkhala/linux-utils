@@ -3,8 +3,8 @@ install(){
   ## generic installer for linux 
   curl -sSL https://get.docker.com/ | sh
   
-  sudo systemctl enable docker.service
-  sudo systemctl enable containerd.service
+  sudo systemctl enable --now docker.service
+  sudo systemctl enable --now containerd.service
   sudo usermod -aG docker $USER
   # log in again
 }
