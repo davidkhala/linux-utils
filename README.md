@@ -16,4 +16,6 @@ https://www.cyberciti.biz/faq/linux-unix-formatting-dates-for-display/
 - `tail`
   - follow and attach to current terminal: `tail -f`
   - get last line: `tail -1`
+- `ping`
+  - `ping -c <count of try times> <ip>`
 - [manage linux processes](https://www.howtogeek.com/107217/how-to-manage-processes-from-the-linux-terminal-10-commands-you-need-to-know/)
