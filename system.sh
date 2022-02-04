@@ -24,5 +24,52 @@ get_distribution() {
 	# case statements don't act unless you provide an actual value
 	echo "$lsb_dist"
 }
+get_dist_version(){
 
+	case "$lsb_dist" in
+
+		ubuntu)
+			if command_exists lsb_release; then
+				dist_version="$(lsb_release --codename | cut -f2)"
+			fi
+			if [ -z "$dist_version" ] && [ -r /etc/lsb-release ]; then
+				dist_version="$(. /etc/lsb-release && echo "$DISTRIB_CODENAME")"
+			fi
+		;;
+
+		debian|raspbian)
+			dist_version="$(sed 's/\/.*//' /etc/debian_version | sed 's/\..*//')"
+			case "$dist_version" in
+				11)
+					dist_version="bullseye"
+				;;
+				10)
+					dist_version="buster"
+				;;
+				9)
+					dist_version="stretch"
+				;;
+				8)
+					dist_version="jessie"
+				;;
+			esac
+		;;
+
+		centos|rhel|sles)
+			if [ -z "$dist_version" ] && [ -r /etc/os-release ]; then
+				dist_version="$(. /etc/os-release && echo "$VERSION_ID")"
+			fi
+		;;
+
+		*)
+			if command_exists lsb_release; then
+				dist_version="$(lsb_release --release | cut -f2)"
+			fi
+			if [ -z "$dist_version" ] && [ -r /etc/os-release ]; then
+				dist_version="$(. /etc/os-release && echo "$VERSION_ID")"
+			fi
+		;;
+
+	esac
+}
 $@
