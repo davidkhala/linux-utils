@@ -1,15 +1,18 @@
 #!/usr/bin/env bash
 
 viewDiskVolumes() {
-    lsblk
+	lsblk
 }
 
 viewFileSystem() {
-    df -h
+	df -h
 }
-viewRelease(){
-    # Reference: https://www.binarytides.com/linux-command-to-check-distro/
-    cat /etc/*-release | uniq -u
+viewRelease() {
+	# Reference: https://www.binarytides.com/linux-command-to-check-distro/
+	cat /etc/*-release | uniq -u
+}
+command_exists() {
+	command -v "$@" >/dev/null 2>&1
 }
 # Check if this is a forked Linux distro
 check_forked() {
@@ -18,7 +21,7 @@ check_forked() {
 	if command_exists lsb_release; then
 		# Check if the `-u` option is supported
 		set +e
-		lsb_release -a -u > /dev/null 2>&1
+		lsb_release -a -u >/dev/null 2>&1
 		lsb_release_exit_code=$?
 		set -e
 
@@ -26,7 +29,7 @@ check_forked() {
 		if [ "$lsb_release_exit_code" = "0" ]; then
 			# Print info about current distro
 			cat <<-EOF
-			You're using '$lsb_dist' version '$dist_version'.
+				You're using '$lsb_dist' version '$dist_version'.
 			EOF
 
 			# Get the upstream release info
@@ -35,7 +38,7 @@ check_forked() {
 
 			# Print info about upstream distro
 			cat <<-EOF
-			Upstream release is '$lsb_dist' version '$dist_version'.
+				Upstream release is '$lsb_dist' version '$dist_version'.
 			EOF
 		else
 			if [ -r /etc/debian_version ] && [ "$lsb_dist" != "ubuntu" ] && [ "$lsb_dist" != "raspbian" ]; then
@@ -48,17 +51,17 @@ check_forked() {
 				fi
 				dist_version="$(sed 's/\/.*//' /etc/debian_version | sed 's/\..*//')"
 				case "$dist_version" in
-					11)
-						dist_version="bullseye"
+				11)
+					dist_version="bullseye"
 					;;
-					10)
-						dist_version="buster"
+				10)
+					dist_version="buster"
 					;;
-					9)
-						dist_version="stretch"
+				9)
+					dist_version="stretch"
 					;;
-					8)
-						dist_version="jessie"
+				8)
+					dist_version="jessie"
 					;;
 				esac
 			fi
