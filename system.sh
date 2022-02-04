@@ -71,5 +71,6 @@ get_dist_version(){
 		;;
 
 	esac
+	echo "$dist_version"
 }
 $@
