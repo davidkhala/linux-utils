@@ -22,7 +22,8 @@ get_distribution() {
 	fi
 	# Returning an empty string here should be alright since the
 	# case statements don't act unless you provide an actual value
-	echo "$lsb_dist"
+	echo "$lsb_dist" | tr '[:upper:]' '[:lower:]'
+	
 }
 get_dist_version(){
 
