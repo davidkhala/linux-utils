@@ -1,0 +1,4 @@
+printRest() {
+    echo "$@"
+}
+$@
