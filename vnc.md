@@ -3,7 +3,7 @@
 - 参考具体linux distro的vncserver安装方式
 
 运行  
-1. $ `vncserver -geometry 1280x1024` 
+1. $ `vncserver -geometry 1280x1024 -httpPort 5901` 
 1. 输入校验密码，用于vnc客户端，然后vncserver会在后台运行
 
 
