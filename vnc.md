@@ -6,6 +6,8 @@
 1. $ `vncserver -geometry 1280x1024 -httpPort 5901` 
 1. 输入校验密码，用于vnc客户端，然后vncserver会在后台运行
 
+终止：`vncserver —kill :1`
+
 
 ### VNC Client段操作
 1. Establish SSH tunnel from localhost to remote vnc server
