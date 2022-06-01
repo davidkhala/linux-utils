@@ -1,4 +1,4 @@
-### Vnc server端
+### Vnc server side
 安装
 - 参考具体linux distro的vncserver安装方式
 
@@ -10,7 +10,7 @@
 终止：`vncserver —kill :1`
 
 
-### VNC Client段操作
+### VNC Client side
 用于OCI VCN
 1. Establish SSH tunnel from localhost to remote vnc server
    1. $ `ssh -L 5901:localhost:5901 -i <vncserver private key> opc@<vncserver>`
