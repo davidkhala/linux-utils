@@ -16,7 +16,8 @@
    1. $ `ssh -L 5901:localhost:5901 -i <vncserver private key> opc@<vncserver>`
    1. tunnel会在这个terminal里持续存在，并作为localhost:5901的服务，不要关
 2. 打开vnc可视化软件如VNC viewer，连接到localhost:5901
-其他
+
+其他计算平台
 - 打开vnc可视化软件如VNC viewer，直接连接到<vncserver>:5901
 
 
