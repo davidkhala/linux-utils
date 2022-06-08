@@ -3,6 +3,9 @@
 viewDiskVolumes() {
 	lsblk
 }
+viewMemory(){
+	grep MemTotal /proc/meminfo
+}
 
 viewFileSystem() {
 	df -h
