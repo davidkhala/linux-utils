@@ -13,6 +13,7 @@ viewFileSystem() {
 viewRelease() {
 	# Reference: https://www.binarytides.com/linux-command-to-check-distro/
 	cat /etc/*-release | uniq -u
+	hostnamectl
 }
 command_exists() {
 	command -v "$@" >/dev/null 2>&1
