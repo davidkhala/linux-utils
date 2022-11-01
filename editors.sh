@@ -1,7 +1,7 @@
 ## util for sed, awk, grep, tee or even vim
-configure(){
+configure() {
   local configline=$1
   local file=$2
-  grep -qF -- "$configline" "$file" || echo "$configline" >> "$file"
+  grep -qF -- "$configline" "$file" || echo "$configline" >>"$file"
 }
 $@

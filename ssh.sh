@@ -1,14 +1,13 @@
 #!/usr/bin/env bash
 set -e
 
-authorize-key(){
+authorize-key() {
     mkdir -p ~/.ssh
     touch ~/.ssh/authorized_keys
     curl https://raw.githubusercontent.com/davidkhala/linux-utils/main/editors.sh | bash -s configure $1 ~/.ssh/authorized_keys
 }
 
-
-skipHostStrict(){
+skipHostStrict() {
     local _host=${1:-git@github.com}
     set +e
     ssh -o StrictHostKeyChecking=no ${_host}
