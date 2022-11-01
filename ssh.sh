@@ -2,7 +2,9 @@
 set -e
 
 authorize-key(){
-    curl https://raw.githubusercontent.com/davidkhala/linux-utils/main/editors.sh | bash -s $1 ~/.ssh/authorized_keys
+    mkdir -p ~/.ssh
+    touch ~/.ssh/authorized_keys
+    curl https://raw.githubusercontent.com/davidkhala/linux-utils/main/editors.sh | bash -s configure $1 ~/.ssh/authorized_keys
 }
 
 
