@@ -2,8 +2,7 @@
 set -e
 
 authorize-key(){
-    # TODO
-    ~/.ssh/authorized_keys    
+    curl https://raw.githubusercontent.com/davidkhala/linux-utils/main/editors.sh | bash -s $1 ~/.ssh/authorized_keys
 }
 
 
