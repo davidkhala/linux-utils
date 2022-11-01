@@ -1,6 +1,11 @@
 #!/usr/bin/env bash
 set -e
 
+authorize-key(){
+    # TODO
+    ~/.ssh/authorized_keys    
+}
+
 
 skipHostStrict(){
     local _host=${1:-git@github.com}
