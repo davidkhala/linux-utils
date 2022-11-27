@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
-symbolicLink(){
+symbolic-link() {
     local targetSrc=$1
     local link=$2
     sudo ln -s $1 $2
 }
-untar(){
+untar() {
     tar -xf $1
 }
 $@

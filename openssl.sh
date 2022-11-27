@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 set -e
-decode(){
+decode() {
   openssl x509 -in "$1" -text -noout
 }
 $@

@@ -1,4 +1,4 @@
-install_libtool(){
+install-libtool(){
 	lsb_dist=""
 	if [ -r /etc/os-release ]; then
 		lsb_dist="$(. /etc/os-release && echo "$ID")"

@@ -7,7 +7,7 @@ prepare() {
     git config --global user.email $email
     git config --global user.name $name
 }
-switchBranch() {
+switch-branch() {
     local branchName=$1
     echo "switching to branch origin/$branchName"
     git checkout -b $branchName
@@ -15,10 +15,10 @@ switchBranch() {
     git branch --set-upstream-to=origin/$branchName $branchName
     git pull
 }
-rebaseStrategy(){
+rebase-strategy() {
     git config pull.rebase true
 }
-mergeStrategy(){
+merge-strategy() {
     git config pull.rebase false
 }
 

@@ -7,7 +7,7 @@ authorize-key() {
     curl https://raw.githubusercontent.com/davidkhala/linux-utils/main/editors.sh | bash -s configure $1 ~/.ssh/authorized_keys
 }
 
-skipHostStrict() {
+skip-host-strict() {
     local _host=${1:-git@github.com}
     set +e
     ssh -o StrictHostKeyChecking=no ${_host}

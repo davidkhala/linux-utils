@@ -50,7 +50,7 @@ terminateTTY() {
   echo pid=$pid
   sudo kill -15 $pid
 }
-listRules() {
+list-rules() {
   sudo auditctl -l
 }
 

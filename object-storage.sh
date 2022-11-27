@@ -3,9 +3,5 @@ setup (){
   curl https://rclone.org/install.sh | sudo bash
   
 }
-init-gcp(){
-
-
-}
 
 $@

@@ -4,7 +4,7 @@ set -e
 get() {
 	hostname
 }
-changeHostName() {
+change-hostname() {
 	local oldHostName=$(hostname)
 	local newHostName=$1
 	read -p " change hostname from \"${oldHostName}\" to \"${newHostName}\" ? (y/n)" choice
@@ -25,7 +25,7 @@ changeHostName() {
 	esac
 
 }
-addHostMap() {
+add-host-map() {
 	local ip=$1
 	local mapHostName=$2
 	if grep "$mapHostName" /etc/hosts; then
@@ -61,7 +61,7 @@ addHostMap() {
 	fi
 
 }
-hostIP() {
+host-ip() {
 	# for docker container connect to docker host machine
 	# run it in host terminal
 	/sbin/ip route | awk '/default/ { print $3 }'
