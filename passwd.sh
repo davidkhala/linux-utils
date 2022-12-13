@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 reset() {
-    sudo passwd $USER
+    sudo passwd $1
 }
 
 $@

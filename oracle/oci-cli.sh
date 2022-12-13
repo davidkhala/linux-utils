@@ -1,4 +1,4 @@
-install(){
+install() {
     ## silent mode
     bash -c "$(curl -L https://raw.githubusercontent.com/oracle/oci-cli/master/scripts/install/install.sh)" -- --accept-all-defaults
     # In what directory would you like to place the install? (leave blank to use '$HOME/lib/oracle-cli')
