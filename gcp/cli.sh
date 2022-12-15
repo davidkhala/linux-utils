@@ -1,0 +1,4 @@
+init() {
+    gcloud init
+}
+$@
