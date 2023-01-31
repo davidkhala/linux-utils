@@ -19,3 +19,5 @@ https://www.cyberciti.biz/faq/linux-unix-formatting-dates-for-display/
 - `ping`
   - `ping -c <count of try times> <ip>`
 - [manage linux processes](https://www.howtogeek.com/107217/how-to-manage-processes-from-the-linux-terminal-10-commands-you-need-to-know/)
+- Basically, `$PWD` is just where the shell thinks you are, not necessarily where you really are
+  - https://unix.stackexchange.com/questions/295495/ls-pwd-and-ls-get-different-files-strange-caching-perhaps/295497#295497
