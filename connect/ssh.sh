@@ -1,5 +1,10 @@
 #!/usr/bin/env bash
 set -e
+password-login(){
+    # Prerequisite: you need to install `~$ sshpass` in advance
+    # set $password as ssh password
+    sshpass -p $password ssh $@
+}
 
 authorize-key() {
     mkdir -p ~/.ssh
