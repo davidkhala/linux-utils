@@ -19,6 +19,7 @@ https://www.cyberciti.biz/faq/linux-unix-formatting-dates-for-display/
 - `ping`
   - `ping -c <count of try times> <ip>`
 - [cut](https://man7.org/linux/man-pages/man1/cut.1.html): Print selected parts of lines from each FILE(or standard input) to standard output.
+  - Similar to `awk` in some use cases.
   - Required: Use one, and only one of `-b`, `-c` or `-f`
   - `-d`: --delimiter. Use specified delimiter instead of TAB for field delimiter
   - `-b`: --bytes. Select only these bytes
