@@ -22,9 +22,9 @@ https://www.cyberciti.biz/faq/linux-unix-formatting-dates-for-display/
   - Required: Use one, and only one of `-b`, `-c` or `-f`
   - `-d`: --delimiter. Use specified delimiter instead of TAB for field delimiter
   - `-b`: --bytes. Select only these bytes
-  - `-f`: --fields.
-    - Select only these fields
+  - `-f`: --fields. Select only these fields
     - Also print any line that contains no delimiter character, unless the `-s` option is specified
+    - Example: `echo a-b-c | cut -d"-" -f1,3` will stdout `a-c`
   
 - [manage linux processes](https://www.howtogeek.com/107217/how-to-manage-processes-from-the-linux-terminal-10-commands-you-need-to-know/)
 - Basically, `$PWD` is just where the shell thinks you are, not necessarily where you really are
