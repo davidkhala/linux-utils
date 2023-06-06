@@ -4,7 +4,7 @@ while true; do
     if $@; then
         break;
     else
-        counter=counter+1
+        ((counter++))
         sleep 1
         echo ${counter} times retry
     fi
