@@ -1,4 +1,5 @@
 counter=0
+echo wait until $@
 while true; do
     if $@; then
         exit 0
