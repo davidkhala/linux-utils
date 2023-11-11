@@ -3,8 +3,11 @@
 view-disk-volumes() {
 	lsblk
 }
+view-cpu(){
+	lscpu
+}
 view-memory() {
-	grep MemTotal /proc/meminfo
+	free -h
 }
 
 view-file-system() {
