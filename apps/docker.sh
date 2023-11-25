@@ -8,6 +8,10 @@ install() {
   curl -sSL https://get.docker.com/ | sh
   
 }
+install-rootless(){
+	curl -sSL https://get.docker.com/rootless | sh
+
+}
 rootless(){
 	dockerd-rootless-setuptool.sh install
 
