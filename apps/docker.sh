@@ -9,7 +9,7 @@ install() {
   
 }
 rootless(){
-	
+	dockerd-rootless-setuptool.sh install
 
 }
 rootful(){
