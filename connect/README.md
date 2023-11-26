@@ -4,7 +4,7 @@
 ```
 Host Project-Bastion
     IdentityFile C:\Users\david\Downloads\ssh-key-2020-12-20.key
-    HostName 43.129.190.96
+    HostName <public-ip>
     User david
     ForwardAgent yes
 Host target
