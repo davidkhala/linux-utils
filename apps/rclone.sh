@@ -1,7 +1,7 @@
 set -e
-setup (){
+setup() {
   curl https://rclone.org/install.sh | sudo bash
-  
+
 }
 
 $@

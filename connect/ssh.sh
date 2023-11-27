@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 set -e
-password-login(){
+password-login() {
     # Prerequisite: you need to install util `sshpass` in advance
     # set $password as ssh password
     sshpass -p $password ssh $@

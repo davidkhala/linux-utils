@@ -2,7 +2,7 @@ counter=0
 echo wait until $@
 while true; do
     if $@; then
-        break;
+        break
     else
         ((counter++))
         sleep 1

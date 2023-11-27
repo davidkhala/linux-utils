@@ -1,4 +1,4 @@
-restart(){
+restart() {
   sudo service waagent restart
 }
 $@

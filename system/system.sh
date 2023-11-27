@@ -3,7 +3,7 @@
 view-disk-volumes() {
 	lsblk
 }
-view-cpu(){
+view-cpu() {
 	lscpu
 }
 view-memory() {
