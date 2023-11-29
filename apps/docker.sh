@@ -12,6 +12,7 @@ install-rootless() {
 	# NOTE PLEASE run this without 'sudo', otherwise ENV $USER will be 'root' instead of current user.
 	# See in https://docs.docker.com/engine/security/rootless/
 	curl -sSL https://get.docker.com/rootless | sh
+ 	export PATH=/home/ubuntu/bin:$PATH
 	export DOCKER_HOST=unix:///run/user/$UID/docker.sock
 }
 rootless() {
