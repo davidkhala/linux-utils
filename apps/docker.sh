@@ -19,10 +19,16 @@ rootless() {
 	dockerd-rootless-setuptool.sh install
 	rootless-env
 }
+rootless-service(){
+	systemctl --user enable --now docker.service
+	sudo loginctl enable-linger $USER # To run docker.service on system startup, learned from docker
+	
+}
 rootless-env() {
 
 	if [ -z "$DOCKER_HOST" ]; then
 		echo "export DOCKER_HOST=unix:///run/user/$UID/docker.sock" >>~/.bashrc
+  		echo "export PATH=$HOME/bin:$PATH" >>~/.bashrc
 		source ~/.bashrc
 	fi
 
