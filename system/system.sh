@@ -9,6 +9,10 @@ view-cpu() {
 view-memory() {
 	free -h
 }
+update-hostname(){
+	loca new_hostname=$1
+	sudo hostnamectl set-hostname $new_hostname
+}
 
 view-file-system() {
 	df -h
