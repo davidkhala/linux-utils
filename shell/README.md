@@ -5,6 +5,8 @@
   - < : 将一个文件的内容作为命令的标准输入 (替换式)
 - 字符串大小写转换
   - 从大写转化到小写`ORG=echo ${ORG} | tr '[:upper:]' '[:lower:]'`
+- `$@` is all of the parameters passed to the script.
+    - For instance, if you call `./someScript.sh foo bar` then `$@` will be equal to `foo bar`.
 
 # Tools
 
