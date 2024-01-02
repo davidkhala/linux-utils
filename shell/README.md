@@ -12,18 +12,31 @@
 
 # Native Tools
 - [Date formatter in shell](https://www.cyberciti.biz/faq/linux-unix-formatting-dates-for-display/)
-## `rm`
+### `rm`
 - To remove all the contents of the folder but not the folder itself:
   ```
   rm -rf /path/to/directory/*
   ```
-## `tail`
-- follow and attach to current terminal: `tail -f`
-- get last line: `tail -1`
-## `ping`
+### `ping`
 - `ping -c <count of try times> <ip>`  
 
-## [cut](https://man7.org/linux/man-pages/man1/cut.1.html)
+## text editor & viewer
+### `cat`
+## Vim
+$ vi
+### `tail`
+- follow and attach to current terminal: `tail -f`
+- get last line: `tail -1`
+
+### [more](https://man7.org/linux/man-pages/man1/more.1.html)
+- exit: `q`
+- page down: `<SPACE>`
+- one line down: `<ENTER>`
+- page up: `b`
+- no way to one line up
+
+
+### [cut](https://man7.org/linux/man-pages/man1/cut.1.html)
 Print selected parts of lines from each FILE(or standard input) to standard output.
 - Similar to `awk` in some use cases.
 - Required: Use one, and only one of `-b`, `-c` or `-f`
