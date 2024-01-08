@@ -5,4 +5,7 @@ prepare-home-dir(){
 reset-password() {
     sudo passwd $1
 }
+create(){
+  sudo useradd -m $1
+}
 $@
