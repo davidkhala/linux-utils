@@ -1,10 +1,11 @@
 counter=0
 echo wait until $@
 while true; do
-    if $@; then
+    $@ && rc=$? || rc=$?
+    if [ "0" -eq "$rc" ] ; then
         break
     else
-        ((counter++))
+        counter=$((counter+1))
         sleep 1
         echo ${counter} times retry
     fi
