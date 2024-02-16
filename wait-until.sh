@@ -5,7 +5,7 @@ while true; do
     if [ "0" -eq "$rc" ] ; then
         break
     else
-        counter=$((counter+1))
+        ((counter++))
         sleep 1
         echo ${counter} times retry
     fi
