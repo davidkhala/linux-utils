@@ -1,8 +1,8 @@
 #!/bin/bash
-host-info(){
+host-info() {
 	docker system info --format '{{.OSType}}/{{.Architecture}}'
 }
-monitor(){
+monitor() {
 	docker stats
 }
 "$@"

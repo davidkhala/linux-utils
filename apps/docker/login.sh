@@ -13,13 +13,12 @@ ocir() {
 	docker login $region_key.ocir.io --username $tenancy_namespace/$username
 
 }
-aws-public(){
+aws-public() {
 	## aws ecr-public
 	## Case 1: if we use other non-home region like hongkong, `get-login-password` will prompt error
 	## 	Could not connect to the endpoint URL: "https://api.ecr-public.ap-east-1.amazonaws.com/"
-	
+
 	aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws/davidkhala
-	
-	
+
 }
 $@
