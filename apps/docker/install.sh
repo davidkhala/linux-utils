@@ -1,4 +1,4 @@
-## Note: below is for reference only, please switch to use platform specific install tools
+## Note: below are depedencies only, please switch to use platform specific install tools
 diagnose() {
 	ls -al /var/run/docker.sock
 }
@@ -50,4 +50,4 @@ rootful() {
 
 }
 
-$@
+"$@"
