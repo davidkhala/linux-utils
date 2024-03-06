@@ -1,0 +1,4 @@
+client.csr
+server.csr
+extfile.cnf
+extfile-client.cnf
