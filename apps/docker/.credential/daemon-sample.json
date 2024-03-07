@@ -1,0 +1,10 @@
+{
+    "hosts":[
+        "tcp://0.0.0.0:2376"
+    ],
+    "tlsverify":true,
+    "tlscacert":"/root/linux-utils/apps/docker/.credential/ca.pem",
+    "tlscert":"/root/linux-utils/apps/docker/.credential/server-cert.pem",
+    "tlskey":"/root/linux-utils/apps/docker/.credential/server-key.pem"
+
+}

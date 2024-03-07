@@ -1,7 +1,7 @@
 set -e
 config=/etc/docker/daemon.json
 rootlessConfig=~/.config/docker/daemon.json
-expose() {
+expose-http() {
     # overwrite with new service ExecStart
     sudo curl https://raw.githubusercontent.com/davidkhala/linux-utils/main/apps/docker/docker.conf --create-dirs -o /etc/systemd/system/docker.service.d/docker.conf
     # add hosts to daemon config file
@@ -16,5 +16,7 @@ expose() {
     # Test
     docker -H tcp://127.0.0.1:2375 version
 }
-
+run-http() {
+    sudo dockerd -H=127.0.0.1:2375
+}
 "$@"
