@@ -1,5 +1,6 @@
 set -e
 HOST=${HOST:-localhost}
+DOCKER_CERT_PATH=~/.docker/
 ca() {
     # generate CA private and public keys
     openssl genrsa -out ca-key.pem 4096
@@ -16,7 +17,7 @@ client() {
 
     openssl req -subj '/CN=client' -new -key key.pem -out client.csr
 
-    echo extendedKeyUsage = clientAuth > extfile-client.cnf
+    echo extendedKeyUsage = clientAuth >extfile-client.cnf
 
     openssl x509 -req -days 365 -sha256 -in client.csr -CA ca.pem -CAkey ca-key.pem -CAcreateserial -out cert.pem -extfile extfile-client.cnf
 }
@@ -31,10 +32,12 @@ clean() {
     rm -v client.csr server.csr extfile.cnf extfile-client.cnf
 }
 run() {
-    sudo dockerd --tlsverify -H=0.0.0.0:2376 \
-        --tlscacert=ca.pem \
-        --tlscert=server-cert.pem \
-        --tlskey=server-key.pem
+    sudo dockerd --tlsverify -H=0.0.0.0:2376 --tlscacert=ca.pem --tlscert=server-cert.pem --tlskey=server-key.pem
+}
+run-noAuth() {
+    # FIXME Do not authenticate clients
+    # https://docs.docker.com/engine/security/protect-access/#daemon-modes
+    sudo dockerd --tls -H=0.0.0.0:2376 --tlscacert=ca.pem --tlscert=server-cert.pem --tlskey=server-key.pem
 }
 connect() {
     docker --tlsverify -H=$HOST:2376 \
@@ -42,5 +45,10 @@ connect() {
         --tlscert=cert.pem \
         --tlskey=key.pem \
         version
+}
+connect-noAuth() {
+    # FIXME Do not authenticate clients
+    # https://docs.docker.com/engine/security/protect-access/#daemon-modes
+    docker --tlsverify -H=$HOST:2376 --tlscacert=ca.pem version
 }
 "$@"
