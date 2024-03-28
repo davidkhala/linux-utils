@@ -13,6 +13,9 @@ ocir() {
 	docker login $region_key.ocir.io --username $tenancy_namespace/$username
 
 }
+redhat(){
+	docker login registry.redhat.io
+}
 aws-public() {
 	## aws ecr-public
 	## Case 1: if we use other non-home region like hongkong, `get-login-password` will prompt error
