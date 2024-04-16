@@ -1,7 +1,6 @@
+set -e
 post-install() {
-    
-    /usr/bin/mysql_secure_installation
     sudo systemctl enable --now mariadb.service
-
+    sudo /usr/bin/mysql_secure_installation
 }
 $@
