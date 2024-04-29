@@ -1,5 +1,3 @@
-# TODO powerful than nmap
-# Reference: https://blog.gtwang.org/linux/linux-utility-netcat-examples/
 # $ nc - arbitrary TCP and UDP connections and listens
 
 probe() {
@@ -13,8 +11,6 @@ serve() {
   if [ -z $pongContent ];then
     pongContent=$(date)
   fi
-  while true; do echo -e "HTTP/1.1 200 OK\n\n ${pongContent}" | nc -l -p $port; done
-  
-  
+  while true; do echo -e "HTTP/1.1 200 OK\n\n ${pongContent}" | nc -l $port; done
 }
 $@
