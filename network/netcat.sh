@@ -13,6 +13,8 @@ serve() {
   if [ -z $pongContent ];then
     pongContent=$(date)
   fi
-  echo -e "HTTP/1.1 200 OK\n\n ${pongContent}" | nc -l -p $port
+  while true; do echo -e "HTTP/1.1 200 OK\n\n ${pongContent}" | nc -l -p $port; done
+  
+  
 }
 $@
