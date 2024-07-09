@@ -5,7 +5,7 @@ install() {
     PB_REL="https://github.com/protocolbuffers/protobuf/releases"
     FILENAME=protoc-${version}-linux-$(uname -p).zip
     curl -LO $PB_REL/download/v${version}/${FILENAME}
-    unzip $FILENAME -d $HOME/.local
+    unzip $FILENAME -d /usr/local
     rm $FILENAME
 }
 version() {
