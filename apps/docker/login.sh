@@ -13,7 +13,7 @@ ocir() {
 	docker login $region_key.ocir.io --username $tenancy_namespace/$username
 
 }
-redhat(){
+redhat() {
 	docker login registry.redhat.io
 }
 aws-public() {

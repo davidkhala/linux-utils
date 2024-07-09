@@ -9,7 +9,7 @@ view-cpu() {
 view-memory() {
 	free -h
 }
-update-hostname(){
+update-hostname() {
 	loca new_hostname=$1
 	sudo hostnamectl set-hostname $new_hostname
 }
@@ -84,5 +84,8 @@ get-dist-version() {
 
 	esac
 	echo "$dist_version"
+}
+arch() {
+	uname -p
 }
 $@
