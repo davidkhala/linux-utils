@@ -2,7 +2,7 @@ docker-hub() {
 	docker login registry.hub.docker.com
 }
 ocr() {
-	docker login container-registry.oracle.com
+	curl https://raw.githubusercontent.com/davidkhala/oracle/main/container/login | bash 
 }
 ocir() {
 	local username=${username:-'davidkhala@gmail.com'}
