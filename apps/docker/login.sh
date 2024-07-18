@@ -17,11 +17,14 @@ redhat() {
 	docker login registry.redhat.io
 }
 aws-public() {
-	## aws ecr-public
-	## Case 1: if we use other non-home region like hongkong, `get-login-password` will prompt error
-	## 	Could not connect to the endpoint URL: "https://api.ecr-public.ap-east-1.amazonaws.com/"
-
+	# When authenticating to a public registry, always authenticate to the us-east-1 Region when using the AWS CLI.
+	
 	aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws/davidkhala
-
+}
+aws-shared(){
+	aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws
+}
+aws-private() {
+	aws ecr get-login-password --region $region | docker login --username AWS --password-stdin $aws_account_id.dkr.ecr.$region.amazonaws.com
 }
 $@
