@@ -11,6 +11,9 @@ reset-root-password(){
 reset-current-password(){
   reset-password $USER
 }
+rotate-current-password(){
+  passwd $USER
+}
 create(){
   sudo useradd -m $1
 }
