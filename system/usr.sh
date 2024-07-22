@@ -8,10 +8,11 @@ reset-password() {
 reset-root-password(){
   reset-password
 }
-reset-current-password(){
+reset-user-password(){
   reset-password $USER
 }
-rotate-current-password(){
+rotate-user-password(){
+  # need current password
   passwd $USER
 }
 create(){
