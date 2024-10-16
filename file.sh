@@ -7,4 +7,9 @@ symbolic-link() {
 untar() {
     tar -xf $1
 }
+find() {
+    # mlocate: global find
+    sudo updatedb
+    locate $1
+}
 $@
