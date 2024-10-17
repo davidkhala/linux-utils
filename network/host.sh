@@ -1,9 +1,15 @@
 #!/usr/bin/env bash
 set -e
 
-get() {
+name() {
 	hostname
 }
+ip(){
+	hostname --ip-address
+ 	# alternative way:
+ 	# ip route get 1.2.3.4 | awk '{print $7}'
+}
+
 change-hostname() {
 	local oldHostName=$(hostname)
 	local newHostName=$1
