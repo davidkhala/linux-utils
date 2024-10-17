@@ -9,7 +9,9 @@
     - For instance, if you call `./someScript.sh foo bar` then `$@` will be equal to `foo bar`.
 - Basically, `$PWD` is just where the shell thinks you are, not necessarily where you really are
   - https://unix.stackexchange.com/questions/295495/ls-pwd-and-ls-get-different-files-strange-caching-perhaps/295497#295497
-
+- `curl <url> | bash -s <function>`
+  - Your target function cannot inherit STDIN of the caller context.
+  - Thus if your function include interactive command like `expect`, `passwd`, then can only be executed in local.
 # Native Tools
 - [Date formatter in shell](https://www.cyberciti.biz/faq/linux-unix-formatting-dates-for-display/)
 ### `rm`
