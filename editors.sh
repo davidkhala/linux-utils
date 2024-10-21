@@ -23,7 +23,7 @@ configure() {
   fi
 
   if grep --quiet "^$key=.*" $file; then
-    sed --in-place --regexp-extended "s/^$key=.*/$key=$value/" $file
+    sudo sed --in-place --regexp-extended "s/^$key=.*/$key=$value/" $file
   else
     append "$key=$value" $file
   fi
