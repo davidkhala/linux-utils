@@ -15,6 +15,7 @@ append() {
 configure() {
   local configline=$1
   local file=$2
+  local d=${3:-/} # delimiter
   read key value <<<$(echo "$configline" | awk -F= '{print $1,$2}')
 
   if [[ -z $value ]]; then
@@ -23,7 +24,7 @@ configure() {
   fi
 
   if grep --quiet "^$key=.*" $file; then
-    sudo sed --in-place --regexp-extended "s/^$key=.*/$key=$value/" $file
+    sudo sed --in-place --regexp-extended "s$d^$key=.*$d$key=$value$d" $file
   else
     append "$key=$value" $file
   fi
