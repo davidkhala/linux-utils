@@ -8,14 +8,22 @@ password-login() {
 
 authorize-key() {
     mkdir -p ~/.ssh
-    touch ~/.ssh/authorized_keys
-    curl https://raw.githubusercontent.com/davidkhala/linux-utils/main/editors.sh | bash -s configure $1 ~/.ssh/authorized_keys
+    local file=~/.ssh/authorized_keys
+    touch $file
+
+    if ! grep --quiet "$1" $file; then
+        echo $1 | sudo tee -a $file
+    fi
+}
+
+clean() {
+    # clean known_hosts cache
+    rm ~/.ssh/known_hosts
 }
 
 skip-host-strict() {
-    local _host=${1:-git@github.com}
     set +e
-    ssh -o StrictHostKeyChecking=no ${_host}
+    ssh -o StrictHostKeyChecking=no $1
     set -e
 }
 genRSA() {
