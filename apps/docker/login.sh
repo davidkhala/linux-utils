@@ -13,6 +13,11 @@ ocir() {
 	docker login $region_key.ocir.io --username $tenancy_namespace/$username
 
 }
+github(){
+	local username=${username:-'davidkhala'}
+ 	
+ 	echo $GITHUB_TOKEN | docker login ghcr.io -u $username --password-stdin
+}
 redhat() {
 	docker login registry.redhat.io
 }
