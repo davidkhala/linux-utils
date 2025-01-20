@@ -14,7 +14,7 @@ ocir() {
 
 }
 github(){
-	local username=${username:-'davidkhala'}
+	local username=${username:-davidkhala}
  	
  	echo $GITHUB_TOKEN | docker login ghcr.io -u $username --password-stdin
 }
