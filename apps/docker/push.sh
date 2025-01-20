@@ -9,6 +9,12 @@ ocir() {
 
     docker-hub $region_key.ocir.io/$tenancy_namespace $image
 }
+github(){
+    local owner=${owner:-davidkhala}
+    local image=$1
+    docker-hub ghcr.io/$owner $image
+    
+}
 
 docker-hub() {
     local namespace=${1:-davidkhala}
@@ -25,4 +31,4 @@ aws-public() {
     docker-hub public.ecr.aws/$tenancy_namespace $image
 }
 
-$@
+"$@"
