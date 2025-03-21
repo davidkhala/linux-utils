@@ -15,6 +15,11 @@ install-rootless() {
 	curl -sSL https://get.docker.com/rootless | sh
 	rootless-env
 }
+uninstall-rootless(){
+	dockerd-rootless-setuptool.sh uninstall
+ 	systemctl --user stop docker
+	rm -f ~/bin/dockerd
+}
 rootless() {
 	dockerd-rootless-setuptool.sh install
 	rootless-env
