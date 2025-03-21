@@ -17,7 +17,7 @@ install-rootless() {
 }
 uninstall-rootless(){
 	dockerd-rootless-setuptool.sh uninstall
- 	systemctl --user stop docker
+ 	rootlesskit rm -rf ~/.local/share/docker
 	rm -f ~/bin/dockerd
 }
 rootless() {
