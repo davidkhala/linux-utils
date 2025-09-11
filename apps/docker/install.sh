@@ -19,6 +19,10 @@ uninstall-rootless(){
 	dockerd-rootless-setuptool.sh uninstall
  	rootlesskit rm -rf ~/.local/share/docker
 	rm -f ~/bin/dockerd
+ 	# unconfigure rootless-env
+ 	sed -i '/export DOCKER_HOST=unix:\/\/\/run\/user\/'"$UID"'\/docker.sock/d' ~/.bashrc
+	sed -i '/export PATH=\$HOME\/bin:\$PATH/d' ~/.bashrc
+ 	source ~/.bashrc
 }
 rootless() {
 	dockerd-rootless-setuptool.sh install
