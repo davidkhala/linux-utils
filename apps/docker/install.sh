@@ -46,7 +46,7 @@ rootless-env() {
 rootful() {
 	# uninstall rootless
 	if dockerd-rootless-setuptool.sh check; then
-		dockerd-rootless-setuptool.sh uninstall
+		uninstall-rootless
 	fi
 
 	# On Debian and Ubuntu, the Docker service is configured to start on boot by default.
