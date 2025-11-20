@@ -24,13 +24,21 @@ trim(){
 	        # 第一次出现的镜像（最新），保留
 	        print "保留: " repo ":" tag " (" id ")";
 	      } else {
-	        # 其他的删除
+	        # 其他的候选删除镜像
 	        print id;
 	      }
 	    }
 	  ' \
 	  | grep -v "^保留" \
-	  | xargs -r docker rmi
+	  | while read img; do
+	      # 检查是否有容器在使用该镜像
+	      if docker ps -a --format "{{.Image}}" | grep -q "$img"; then
+	        echo "跳过: 镜像 $img 正在被容器使用"
+	      else
+	        echo "删除: 镜像 $img"
+	        docker rmi "$img"
+	      fi
+	    done
 
 }
 
