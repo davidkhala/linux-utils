@@ -12,10 +12,8 @@ expose-http() { # for rootful docker
     # overwrite with new service ExecStart
     sudo curl https://raw.githubusercontent.com/davidkhala/linux-utils/main/apps/docker/docker.conf --create-dirs -o /etc/systemd/system/docker.service.d/docker.conf
     # add hosts to daemon config file
-    if [ ! -f $config ]; then
-        sudo touch $config
-    fi
-    cat $config | jq '.hosts=["unix:///var/run/docker.sock","tcp://0.0.0.0:2375"]' | sudo tee $config
+    existing=$(sudo cat $config 2>/dev/null || echo '{}')
+    echo "$existing" | jq '.hosts=["unix:///var/run/docker.sock","tcp://0.0.0.0:2375"]' | sudo tee $config
 
     # restart service
     sudo systemctl daemon-reload
