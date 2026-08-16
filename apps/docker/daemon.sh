@@ -8,7 +8,7 @@ edit-rootless-config() {
     # TODO not tested yet
     sudo vi $rootlessConfig
 }
-expose-http() {
+expose-http() { # for rootful docker
     # overwrite with new service ExecStart
     sudo curl https://raw.githubusercontent.com/davidkhala/linux-utils/main/apps/docker/docker.conf --create-dirs -o /etc/systemd/system/docker.service.d/docker.conf
     # add hosts to daemon config file
@@ -20,8 +20,14 @@ expose-http() {
     # restart service
     sudo systemctl daemon-reload
     sudo systemctl restart docker
-    # Test
-    docker -H tcp://127.0.0.1:2375 version
+    
+    # Test: poll until TCP is ready (systemctl restart returns before dockerd finishes binding)
+    for i in $(seq 1 10); do
+        docker -H tcp://127.0.0.1:2375 version && break
+        echo "attempt $i: TCP not ready yet, retrying in 2s..."
+        sleep 2
+    done
+
 }
 run-http() {
     sudo dockerd --tls=false -H 0.0.0.0:2375
