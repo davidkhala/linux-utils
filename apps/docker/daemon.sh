@@ -19,12 +19,8 @@ expose-http() { # for rootful docker
     sudo systemctl daemon-reload
     sudo systemctl restart docker
     
-    # Test: poll until TCP is ready (systemctl restart returns before dockerd finishes binding)
-    for i in $(seq 1 10); do
-        docker -H tcp://127.0.0.1:2375 version && break
-        echo "attempt $i: TCP not ready yet, retrying in 2s..."
-        sleep 2
-    done
+    # Test
+    docker -H tcp://127.0.0.1:2375 version
 
 }
 run-http() {
